@@ -20,7 +20,7 @@ const api = axios.create({
 });
 
 export const fetchMovies = async (query: string): Promise<Movie[]> => {
-  const response: AxiosResponse<TMDBResponse> = await api.get('/search/movie', {
+  const response = await api.get<TMDBResponse>('/search/movie', {
     params: {
       query,
       language: 'en-US',
